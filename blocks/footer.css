@@ -7,3 +7,8 @@
   margin-bottom: 60px;
   margin-top: 67px;
 }
+@media screen and (max-width: 320px) {
+  .footer__copyright {
+    padding-left: 19px;
+  }
+}
