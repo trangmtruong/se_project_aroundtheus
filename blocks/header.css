@@ -1,13 +1,14 @@
 .header {
   margin-top: 45px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 .header__logo {
   margin-bottom: 41px;
 }
-.header__divider {
-  border: 1px solid #545454;
-  opacity: 0.7;
+.header__logo:hover {
+  opacity: 0.6;
 }
+
 @media screen and (max-width: 1100px) and(min-width: 920px) {
   .header__logo {
     padding-top: 45px;
@@ -22,11 +23,13 @@
   .header {
     max-width: 100%;
     margin: 0;
+    margin-top: 0;
   }
   .header__logo {
     padding-left: 27px;
     padding-top: 28px;
     padding-bottom: 32px;
     margin: 0;
+    max-width: 126px;
   }
 }
