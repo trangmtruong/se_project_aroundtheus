@@ -2,15 +2,18 @@
 
 ### Overview
 
-A description of the project and its functionality.
-
-- Intro
-- Figma
-- Images
+Around the U.S. is my the first project using Figma, working with grid in CSS and deploying project to GitHub.
 
 **Technologies and Techniques**
 
-This project was made using Figma, VSCode
+This project was made using:
+
+- Figma
+- VSCode
+- GitHub
+- HTML
+- CSS
+- Grids
 
 **GitHub**
 
@@ -18,4 +21,6 @@ This project was made using Figma, VSCode
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+![Main page 1280](./images/demo/mainpage1280.png)
+
+![Mobile 320](./images/demo/mobile320.png)

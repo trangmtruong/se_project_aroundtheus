@@ -5,6 +5,7 @@
 }
 .profile__info {
   display: grid;
+  align-items: center;
   grid-template-areas: "title button" "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   grid-gap: 9px 17px;
@@ -123,8 +124,8 @@
   }
 
   .profile__edit-button {
-    max-width: 7.5px;
-    max-height: 7.5px;
+    max-width: 18px;
+    max-height: 18px;
     /*why is the edit button not looking correctly*/
   }
 
