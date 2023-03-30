@@ -46,9 +46,7 @@
   border: 1px solid white;
 }
 .profile__edit-button:hover {
-  background: rgba(255, 255, 255, 0.6);
-
-  /*how to make the edit icon show???*/
+  opacity: 0.6;
 }
 .profile__add-button {
   background: transparent url(../images/add-icon.svg) center no-repeat;
@@ -59,9 +57,7 @@
   border-radius: 2px;
 }
 .profile__add-button:hover {
-  background: #ffffff;
   opacity: 0.6;
-  /*how to make the add icon show???*/
 }
 
 @media screen and (max-width: 1100px) and(min-width: 920px) {
