@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
+  gap: 10px;
 }
 .profile__info {
   display: grid;
@@ -29,6 +30,9 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 1.14;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .profile__description {
   font-family: "Inter", Arial, sans-serif;
@@ -37,6 +41,9 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__edit-button {
@@ -45,6 +52,7 @@
   width: 24px;
   grid-area: button;
   border: 1px solid white;
+  cursor: pointer;
 }
 .profile__edit-button:hover {
   opacity: 0.6;
@@ -56,12 +64,13 @@
   margin-left: auto;
   border: 2px solid white;
   border-radius: 2px;
+  cursor: pointer;
 }
 .profile__add-button:hover {
   opacity: 0.6;
 }
 
-@media screen and (max-width: 1100px) and (min-width: 920px) {
+@media screen and (max-width: 920px) and (min-width: 1100px) {
   .profile {
     padding-bottom: 47.25px;
   }
@@ -110,6 +119,7 @@
 @media screen and (max-width: 320px) {
   .profile {
     padding: 0;
+    gap: 0;
   }
   .profile__image {
     margin-top: 38.25px;
@@ -126,7 +136,6 @@
   .profile__edit-button {
     max-width: 18px;
     max-height: 18px;
-    /*why is the edit button not looking correctly*/
   }
 
   .profile__title {
@@ -142,11 +151,3 @@
     line-height: 1.21;
   }
 }
-
-/*
-@media screen and (max-width: 336px) {
-  .profile__title {
-    font-size: 27px;
-  }
-}
-*/
