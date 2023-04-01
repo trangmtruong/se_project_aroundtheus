@@ -89,7 +89,6 @@
   .profile__title {
     font-size: 30px;
   }
-}
 
   .profile__info {
     display: flex;
@@ -142,10 +141,8 @@
     padding-bottom: 0;
     padding-top: 0;
   }
-  
+
   .profile__description {
     font-size: 14px;
-
   }
-  
 }
