@@ -90,11 +90,7 @@
     font-size: 30px;
   }
 }
-@media screen and (max-width: 620px) {
-  .profile {
-    display: flex;
-    flex-direction: column;
-  }
+
   .profile__info {
     display: flex;
     flex-wrap: wrap;
@@ -146,8 +142,10 @@
     padding-bottom: 0;
     padding-top: 0;
   }
+  
   .profile__description {
     font-size: 14px;
-    line-height: 1.21;
+
   }
+  
 }
