@@ -14,4 +14,7 @@
   .cards {
     margin: 0;
   }
+  .cards__list {
+    padding-top: 36px;
+  }
 }
