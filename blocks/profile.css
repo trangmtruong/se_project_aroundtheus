@@ -13,7 +13,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  /*max-width: ;*/
 }
 .profile__image {
   width: 120px;
@@ -80,18 +79,7 @@
     padding-bottom: 40px;
   }
 }
-/*
-@media screen and (max-width: 746px) {
-  .profile__title {
-    font-size: 38px;
-  }
-}
 
-@media screen and (max-width: 660px) and (min-width: 580px) {
-  .profile__title {
-    font-size: 30px;
-  }
-  */
 @media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;

@@ -1,14 +1,6 @@
 .header {
   margin-top: 45px;
-}
-.header::after {
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-  width: calc(100% + 40px);
-  content: "";
-  height: 1px;
-  display: block;
-  position: absolute;
-  left: -20px;
 }
 
 .header__logo {
