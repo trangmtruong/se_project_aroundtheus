@@ -52,10 +52,8 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
 
   cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
 
-  const imgAltTextEl = cardElement.querySelector(".card__title");
-  imgAltTextEl.textContent = cardData.name;
+  cardImageEl.alt = cardData.name;
 
   cardTitleEl.textContent = cardData.name;
 
@@ -80,7 +78,7 @@ profileEditButton.addEventListener("click", () => {
 
 profileCloseModal.addEventListener("click", closePopup);
 
-ProfileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
