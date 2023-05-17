@@ -55,22 +55,7 @@
   flex-direction: column;
 }
 
-.modal__title {
-  height: 27.26px;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.21;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  margin-bottom: 29.74px;
-}
-.modal__description {
+.modal__input {
   height: 27.26px;
   width: 100%;
   border: none;
@@ -84,8 +69,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-bottom: 29.74px;
+}
+
+.modal__input:last-of-type {
   margin-bottom: 48px;
 }
+
 .modal__button {
   border: none;
   width: 100%;
