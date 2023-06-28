@@ -44,6 +44,7 @@
     <footer class="footer page__section">
       <p class="footer__copyright">© 2022 Around The U.S.</p>
     </footer>
+    <!-- Edit Modal-->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -73,6 +74,36 @@
         </form>
       </div>
     </div>
+
+    <!-- Add Card Modal-->
+    <div class="modal" id="profile-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="profile-close-modal"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">New place</h2>
+        <form class="modal__form" id="add-card-form">
+          <input
+            class="modal__input modal__input_type_title"
+            type="text"
+            name="title"
+            id="profile-title-input"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="modal__input modal__input_type_url"
+            type="text"
+            name="url"
+            id="profile-description-input"
+            placeholder="Image link"
+            required
+          />
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
