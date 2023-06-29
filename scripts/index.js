@@ -46,6 +46,10 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const addNewCardButton = document.querySelector(".profile__add-button");
+const previewImageModal = document.querySelector("#preview-image-modal");
+const previewImageModalClose = document.querySelector(
+  "#preview-image-close-modal"
+);
 /* Functions */
 
 function closePopup(modal) {
@@ -60,10 +64,22 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
-
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+  cardImageEl.addEventListener("click", () => {
+    openModal(previewImageModal);
+    /*
+    cardImageEl.src = cardData.link;
+    */
+  });
+  previewImageModalClose.addEventListener("click", () =>
+    closePopup(previewImageModal)
+  );
   cardImageEl.src = cardData.link;
 
   cardImageEl.alt = cardData.name;

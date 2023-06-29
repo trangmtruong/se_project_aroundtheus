@@ -104,9 +104,25 @@
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
+    </div>
+
+    <!-- Preview Image Modal -->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="preview-image-close-modal"
+          type="button"
+        ></button>
+        <img class="modal__image" src="" />
+        <h6 class="modal__preview-title">Preview image Title</h6>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
+        <button type="button" class="card__delete-button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>
