@@ -1,4 +1,5 @@
 .modal {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,14 +11,13 @@
   padding: 0 19px;
   visibility: hidden;
   opacity: 0;
-  transition-delay: 0s;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal_opened {
-  display: flex;
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: 0s;
 }
 
 .modal__container {
@@ -30,13 +30,11 @@
 }
 .modal__container_type_preview {
   display: flex;
-
   background: none;
-
   padding: 0;
   max-width: 75vw;
   max-height: 75vh;
-  height: auto;
+  /*height: auto;*/
   width: auto;
 }
 .modal__image {
