@@ -11,7 +11,7 @@
   padding: 0 19px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal_opened {
@@ -34,7 +34,7 @@
   padding: 0;
   max-width: 75vw;
   max-height: 75vh;
-  /*height: auto;*/
+  height: auto;
   width: auto;
 }
 .modal__image {
@@ -140,7 +140,7 @@
     width: 282px;
     /*
     height: 322px;*/
-    padding: 25px 22px;
+    /*  padding: 25px 22px; */
   }
   .modal__heading {
     width: 100%;
