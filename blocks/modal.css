@@ -146,4 +146,8 @@
     width: 100%;
     padding-bottom: 75px;
   }
+  .modal__close_type_preview {
+    top: -30.62px;
+    left: calc(100% + 5px);
+  }
 }
