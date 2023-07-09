@@ -35,9 +35,9 @@ const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector(".modal__form");
-const profileTitleInput = document.querySelector("#profile-title-input");
+const profileTitleInput = document.querySelector("#edit-title-input");
 const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
+  "#edit-description-input"
 );
 const addCardTitleInput = addCardForm.querySelector(".modal__input_type_title");
 const addCardUrlInput = addCardForm.querySelector(".modal__input_type_url");
