@@ -78,11 +78,12 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     openModal(previewImageModal);
     imgEl.src = cardData.link;
+    imgEl.src = cardData.link;
     previewTitleEl.textContent = cardData.name;
   });
-  previewImageModalClose.addEventListener("click", () =>
+  /* previewImageModalClose.addEventListener("click", () =>
     closePopup(previewImageModal)
-  );
+  ); */
   cardImageEl.src = cardData.link;
 
   cardImageEl.alt = cardData.name;
@@ -91,6 +92,9 @@ function getCardElement(cardData) {
 
   return cardElement;
 }
+previewImageModalClose.addEventListener("click", () =>
+  closePopup(previewImageModal)
+);
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
@@ -101,6 +105,8 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
+  profileTitleInput.reset();
+  profileDescriptionInput.reset();
 }
 function handleAddCardSubmit(e) {
   e.preventDefault();
@@ -109,7 +115,10 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
 
   closePopup(addCardModal);
+  addCardTitleInput.reset();
+  addCardUrlInput.reset();
 }
+
 /* Event Listeners */
 
 profileEditButton.addEventListener("click", () => {
