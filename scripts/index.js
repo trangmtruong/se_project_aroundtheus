@@ -105,8 +105,6 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
-  profileTitleInput.reset();
-  profileDescriptionInput.reset();
 }
 function handleAddCardSubmit(e) {
   e.preventDefault();
@@ -115,8 +113,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
 
   closePopup(addCardModal);
-  addCardTitleInput.reset();
-  addCardUrlInput.reset();
+  addCardForm.reset();
 }
 
 /* Event Listeners */
