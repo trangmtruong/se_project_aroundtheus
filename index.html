@@ -60,16 +60,24 @@
             name="title"
             id="edit-title-input"
             placeholder="Name"
+            minlength="2"
+            maxlength="40"
             required
           />
+          <span class="modal__input_type_error edit-title-input-error"></span>
           <input
             class="modal__input"
             type="text"
             name="description"
             id="edit-description-input"
             placeholder="Description"
+            minlength="2"
+            maxlength="200"
             required
           />
+          <span
+            class="modal__input_type_error edit-description-input-error"
+          ></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
@@ -91,16 +99,22 @@
             name="title"
             id="card-title-input"
             placeholder="Title"
+            minlength="1"
+            maxlength="30"
             required
           />
+          <span class="modal__input_type_error card-title-input-error"></span>
           <input
             class="modal__input modal__input_type_url"
-            type="text"
+            type="url"
             name="url"
             id="card-description-input"
             placeholder="Image link"
             required
           />
+          <span
+            class="modal__input_type_error card-description-input-error"
+          ></span>
           <button class="modal__button" type="submit">Create</button>
         </form>
       </div>
@@ -130,5 +144,6 @@
       </li>
     </template>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>
