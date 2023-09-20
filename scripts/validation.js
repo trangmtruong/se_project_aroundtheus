@@ -23,10 +23,9 @@ function checkInputValidity(formEl, inputEl, options) {
 }
 
 function hasInvalidInput(inputList) {
-  return inputList.some((inputEl) => {
-    return !inputEl.validity.valid;
-  });
+  return !inputList.every((inputEl) => inputEl.validity.valid);
 }
+
 /*
 function enableButton
 function disableButton
