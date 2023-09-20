@@ -90,9 +90,15 @@
   overflow: hidden;
   margin-bottom: 29.74px;
 }
+.modal__input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
 /*
-.modal__input:focus {
-  border-bottom: #ff0000;
+.modal__input:valid {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.modal__input:invalid {
+  border-bottom: 1px solid #ff0000;
 }
 */
 .modal__input:last-of-type {
