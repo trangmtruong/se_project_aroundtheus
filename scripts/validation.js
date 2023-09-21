@@ -17,13 +17,13 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 }
 
 function checkInputValidity(formEl, inputEl, options) {
-  if (!inputEl.validity.valid) {
+  if (hasInvalidInput(inputEl)) {
     return showInputError(formEl, inputEl, options);
   }
   hideInputError(formEl, inputEl, options);
 }
 
-function hasInvalidInput(inputLEl) {
+function hasInvalidInput(inputEl) {
   return !inputEl.validity.valid;
 }
 
@@ -64,6 +64,33 @@ function enableValidation(options) {
   });
 }
 
+//closing popup by pressing on overlay
+
+profileEditModal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal_opened")) {
+    closePopup(profileEditModal);
+  }
+});
+addCardModal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal_opened")) {
+    closePopup(addCardModal);
+  }
+});
+
+//Close Popup by Esc
+
+document.addEventListener("keydown", (e) => {
+  const modal = document.querySelector(".modal_opened");
+  if (e.key === "Escape") {
+    closePopup(profileEditModal);
+  }
+});
+document.addEventListener("keydown", (e) => {
+  const modal = document.querySelector(".modal_opened");
+  if (e.key === "Escape") {
+    closePopup(addCardModal);
+  }
+});
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -74,6 +101,3 @@ const config = {
 };
 
 enableValidation(config);
-
-//closing popup by pressing on overlay
-//closing popup by pressing esc
