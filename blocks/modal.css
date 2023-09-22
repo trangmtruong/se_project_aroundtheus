@@ -133,15 +133,18 @@
   line-height: 1.21;
   text-align: center;
 }
-.modal__button:hover {
+.modal__button:hover:not(:disabled) {
   cursor: pointer;
   opacity: 0.8;
+}
+..modal__button_disabled:hover {
+  opacity: 0.2;
+  cursor: default;
 }
 .modal__button_disabled {
   opacity: 0.2;
   background-color: #fff;
   color: #000;
-  /*border: 1px;*/
 }
 
 .modal__preview-title {

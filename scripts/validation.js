@@ -44,8 +44,9 @@ function toggleButtonState(inputEl, submitButton, { inactiveButtonClass }) {
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
+  const { submitButtonSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".modal__button");
+  const submitButton = formEl.querySelector(submitButtonSelector);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
@@ -62,16 +63,16 @@ function enableValidation(options) {
     });
     setEventListeners(formEl, options);
   });
-}
-
+} /*
 //closing popup by pressing on overlay
 
-profileEditModal.addEventListener("click", (e) => {
+profileEditModal.addEventListener("mousedown", (e) => {
   if (e.target.classList.contains("modal_opened")) {
     closePopup(profileEditModal);
   }
 });
-addCardModal.addEventListener("click", (e) => {
+
+addCardModal.addEventListener("mousedown", (e) => {
   if (e.target.classList.contains("modal_opened")) {
     closePopup(addCardModal);
   }
@@ -91,6 +92,7 @@ document.addEventListener("keydown", (e) => {
     closePopup(addCardModal);
   }
 });
+*/
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
