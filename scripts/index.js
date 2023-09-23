@@ -54,9 +54,11 @@ const previewImageModalClose = document.querySelector(
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalByEscape);
 }
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalByEscape);
 }
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -76,7 +78,7 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
   cardImageEl.addEventListener("click", () => {
-    openModal(previewImageModal);
+    openPopup(previewImageModal);
     imgEl.src = cardData.link;
     imgEl.alt = cardData.name;
     previewTitleEl.textContent = cardData.name;
@@ -135,46 +137,44 @@ addCardModalCloseButton.addEventListener("click", () =>
 
 //closing popup by pressing on overlay
 
-profileEditModal.addEventListener("mousedown", (e) => {
+profileEditModal.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal_opened")) {
     closePopup(profileEditModal);
   }
 });
 
-addCardModal.addEventListener("mousedown", (e) => {
+addCardModal.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal_opened")) {
     closePopup(addCardModal);
   }
 });
+previewImageModal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal_opened")) {
+    closePopup(previewImageModal);
+  }
+});
 
-//Close Popup by Esc
-function openModal(modal) {
-  document.addEventListener("keydown", closeModalByEscape);
-}
-function closenModal(modal) {
-  document.removeEventListener("keydown", closeModalByEscape);
-}
-function closeModalByEscape(evt) {
+function closeModalByEscape(e) {
   if (e.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
+    closePopup(openedModal);
   }
 }
-closeModalByEscape(profileEditModal);
-closeModalByEscape(addCardModal);
-
 /*
 document.addEventListener("keydown", (e) => {
-  /*const modal = document.querySelector(".modal_opened");
   if (e.key === "Escape") {
     closePopup(profileEditModal);
   }
-;
+});
 
 document.addEventListener("keydown", (e) => {
-  /*const modal = document.querySelector(".modal_opened");
   if (e.key === "Escape") {
     closePopup(addCardModal);
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closePopup(previewImageModal);
   }
 });
 */
