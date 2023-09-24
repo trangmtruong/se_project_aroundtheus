@@ -55,10 +55,16 @@ const previewImageModalClose = document.querySelector(
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalByEscape);
+  profileEditModal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  addCardModal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  previewImageModal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 function openPopup(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalByEscape);
+  profileEditModal.addEventListener("mousedown", closeModalOnRemoteClick);
+  addCardModal.addEventListener("mousedown", closeModalOnRemoteClick);
+  previewImageModal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -136,6 +142,7 @@ addCardModalCloseButton.addEventListener("click", () =>
 );
 
 //closing popup by pressing on overlay
+/*
 
 profileEditModal.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal_opened")) {
@@ -153,13 +160,29 @@ previewImageModal.addEventListener("click", (e) => {
     closePopup(previewImageModal);
   }
 });
-
+*/
 function closeModalByEscape(e) {
   if (e.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closePopup(openedModal);
   }
 }
+function closeModalOnRemoteClick(evt) {
+  // target is the element on which the event happened
+  // currentTarget is the modal
+  // if they are the same then we should close the modal
+  if (
+    evt.target === evt.currentTarget ||
+    evt.target.classList.contains("modal__close")
+  ) {
+    closePopup(evt.target);
+  }
+}
+/*
+profileEditModal.addEventListener("click", closeModalOnRemoteClick);
+addCardModal.addEventListener("click", closeModalOnRemoteClick);
+previewImageModal.addEventListener("click", closeModalOnRemoteClick);
+**
 /*
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
