@@ -55,16 +55,16 @@ const previewImageModalClose = document.querySelector(
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalByEscape);
-  profileEditModal.removeEventListener("mousedown", closeModalOnRemoteClick);
-  addCardModal.removeEventListener("mousedown", closeModalOnRemoteClick);
-  previewImageModal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 function openPopup(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalByEscape);
-  profileEditModal.addEventListener("mousedown", closeModalOnRemoteClick);
-  addCardModal.addEventListener("mousedown", closeModalOnRemoteClick);
-  previewImageModal.addEventListener("mousedown", closeModalOnRemoteClick);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
