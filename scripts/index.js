@@ -56,14 +56,10 @@ function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalByEscape);
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
 function openPopup(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalByEscape);
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 function getCardElement(cardData) {
