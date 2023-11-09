@@ -1,3 +1,5 @@
+import Card from "./Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,8 +26,15 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-/***Elements */
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
 
+const card = new Card(cardData, "#card-template");
+card.getView();
+/***Elements */
+/* -------------------------------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
@@ -67,8 +76,8 @@ function getCardElement(cardData) {
 
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+  // const likeButton = cardElement.querySelector(".card__like-button");
+  // const deleteButton = cardElement.querySelector(".card__delete-button");
   const imgEl = previewImageModal.querySelector(".modal__image");
   const previewTitleEl = previewImageModal.querySelector(
     ".modal__preview-title"
@@ -137,26 +146,6 @@ addCardModalCloseButton.addEventListener("click", () =>
   closePopup(addCardModal)
 );
 
-//closing popup by pressing on overlay
-/*
-
-profileEditModal.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal_opened")) {
-    closePopup(profileEditModal);
-  }
-});
-
-addCardModal.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal_opened")) {
-    closePopup(addCardModal);
-  }
-});
-previewImageModal.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal_opened")) {
-    closePopup(previewImageModal);
-  }
-});
-*/
 function closeModalByEscape(e) {
   if (e.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
@@ -174,26 +163,3 @@ function closeModalOnRemoteClick(evt) {
     closePopup(evt.target);
   }
 }
-/*
-profileEditModal.addEventListener("click", closeModalOnRemoteClick);
-addCardModal.addEventListener("click", closeModalOnRemoteClick);
-previewImageModal.addEventListener("click", closeModalOnRemoteClick);
-**
-/*
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closePopup(profileEditModal);
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closePopup(addCardModal);
-  }
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closePopup(previewImageModal);
-  }
-});
-*/
