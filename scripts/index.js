@@ -56,6 +56,19 @@ const previewImageModalClose = document.querySelector(
 );
 const imgEl = previewImageModal.querySelector(".modal__image");
 const previewTitleEl = previewImageModal.querySelector(".modal__preview-title");
+
+//Objects
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+const editProfileValidator = new FormValidator(config, "#profile-edit-form");
+const addCardValidator = new FormValidator(config, "#add-card-form");
+
 /* Functions */
 
 function closePopup(modal) {
@@ -118,35 +131,41 @@ function handleProfileEditSubmit(e) {
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
 }
+
+function createCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  return card.getCardElement();
+}
+
 function handleAddCardSubmit(e) {
   e.preventDefault();
-  const name = addCardTitleInput.value;
-  const link = addCardUrlInput.value;
-  renderCard({ name, link }, cardListEl);
+  //
+  const cardData = {
+    name: addCardTitleInput.value,
+    link: addCardUrlInput.value,
+  };
+  //renderCard({ name, link }, cardListEl);
+  const cardElement = createCard(cardData);
+  cardListEl.prepend(cardElement);
 
   closePopup(addCardModal);
   addCardForm.reset();
+  addCardValidator.resetValidation();
 }
 
 /* Event Listeners */
 
 profileEditButton.addEventListener("click", () => {
-  openPopup(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  editProfileValidator.resetValidation();
+  openPopup(profileEditModal);
 });
 profileCloseModal.addEventListener("click", () => closePopup(profileEditModal));
 
 // Form Listeners
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
-
-// Render cards
-initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  const cardElement = card.getCardElement();
-  cardListEl.append(cardElement);
-});
 
 //Add New Card Button
 
@@ -173,3 +192,11 @@ function closeModalOnRemoteClick(evt) {
     closePopup(evt.target);
   }
 }
+
+//Initialization
+initialCards.forEach((cardData) => {
+  const cardElement = createCard(cardData);
+  cardListEl.append(cardElement);
+});
+editProfileValidator.enableValidation();
+addCardValidator.enableValidation();
