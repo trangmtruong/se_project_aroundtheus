@@ -5,25 +5,33 @@ export default class Card {
     this._link = data.link;
     this._handleImageClick = handleImageClick;
     this._cardSelector = cardSelector;
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    this._cardImage = this._cardElement.querySelector(".card__image");
-    this._cardTitle = this._cardElement.querySelector(".card__title");
-    this._likeButton = this._cardElement.querySelector(".card__like-button");
-    this._deleteButton = this._cardElement.querySelector(
-      ".card__delete-button"
-    );
+    // this._cardElement = document
+    //   .querySelector(this._cardSelector)
+    //   .content.querySelector(".card")
+    //   .cloneNode(true);
+    // this._cardImage = this._cardElement.querySelector(".card__image");
+    // this._cardTitle = this._cardElement.querySelector(".card__title");
+    // this._likeButton = this._cardElement.querySelector(".card__like-button");
+    // this._deleteButton = this._cardElement.querySelector(
+    //   ".card__delete-button"
+    // );
   }
 
   _setEventListeners() {
     //".card__like-button"
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
     this._likeButton.addEventListener("click", () => {
       this._handleLikeIcon();
     });
 
     //".card__delete-button"
+    this._deleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
+    this._deleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteCard();
     });
@@ -33,9 +41,7 @@ export default class Card {
     });
   }
   _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+    this._likeButton.classList.toggle("card__like-button_active");
   }
   _handleDeleteCard() {
     this._cardElement.remove();
@@ -45,6 +51,12 @@ export default class Card {
   getCardElement() {
     //from getCardElement
     //get the card view
+    this._cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+    this._cardImage = this._cardElement.querySelector(".card__image");
+    this._cardTitle = this._cardElement.querySelector(".card__title");
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._cardTitle.textContent = this._name;

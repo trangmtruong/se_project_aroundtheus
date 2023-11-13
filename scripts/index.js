@@ -119,10 +119,10 @@ function handleImageClick(data) {
   previewTitleEl.textContent = data.name;
   openPopup(previewImageModal);
 }
-function renderCard(data, wrapper) {
-  const cardElement = getCardElement(data);
-  wrapper.prepend(cardElement);
-}
+// function renderCard(data, wrapper) {
+//   const cardElement = getCardElement(data);
+//   wrapper.prepend(cardElement);
+// }
 
 /* Event Handlers */
 function handleProfileEditSubmit(e) {
