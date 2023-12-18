@@ -3,6 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -83,21 +84,19 @@ const editProfilePopup = new PopupWithForm(
 
 const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
 const previewImagePopup = new PopupWithImage("#preview-image-modal");
+const profileUserInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
+});
 
-previewImageModalClose.addEventListener("click", () =>
-  closePopup(previewImageModal)
-);
 function handleImageClick(data) {
-  imgEl.src = data.link;
-  imgEl.alt = data.name;
-  previewTitleEl.textContent = data.name;
-  previewImagePopup.open();
+  previewImagePopup.open(data.name, data.link);
 }
 
 /* Event Handlers */
-function handleProfileEditSubmit(e) {
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
+function handleProfileEditSubmit(inputValues) {
+  //should be handled by userinfo class
+  profileUserInfo.setUserInfo(inputValues.title, inputValues.description);
 }
 
 function createCard(cardData) {
@@ -105,17 +104,17 @@ function createCard(cardData) {
   return card.getCardElement();
 }
 
-function handleAddCardSubmit(e) {
+function handleAddCardSubmit(inputValues) {
   //e.preventDefault();
 
-  const cardData = {
-    name: addCardTitleInput.value,
-    link: addCardUrlInput.value,
-  };
+  // const cardData = {
+  //   name: addCardTitleInput.value,
+  //   link: addCardUrlInput.value,
+  // };
   //renderCard({ name, link }, cardListEl);
-  cardSection.addItem(cardData);
+  cardSection.addItem(inputValues);
 
-  closePopup(addCardModal);
+  addCardPopup.close();
   addCardForm.reset();
   addCardValidator.resetValidation();
 }
@@ -123,43 +122,46 @@ function handleAddCardSubmit(e) {
 /* Event Listeners */
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  // profileTitleInput.value = profileTitle.textContent;
+  // profileDescriptionInput.value = profileDescription.textContent;
+  //what's inside of arr should be gotten by the useinfo class
+  debugger;
+  const userInfo = profileUserInfo.getUserInfo();
+  const arr = [userInfo.name, userInfo.job];
+  editProfilePopup.setInputValues(arr);
   editProfileValidator.resetValidation();
   editProfilePopup.open();
 });
 ////profileCloseModal.addEventListener("click", () => closePopup(profileEditModal));
 
 // Form Listeners
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-addCardForm.addEventListener("submit", handleAddCardSubmit);
 
 //Add New Card Button
 
 addNewCardButton.addEventListener("click", () => addCardPopup.open());
-addCardModalCloseButton.addEventListener("click", () =>
-  closePopup(addCardModal)
-);
+// addCardModalCloseButton.addEventListener("click", () =>
+//   closePopup(addCardModal)
+// );
 
 //Close Modal Functions
-function closeModalByEscape(e) {
-  if (e.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closePopup(openedModal);
-  }
-}
-function closeModalOnRemoteClick(evt) {
-  // target is the element on which the event happened
-  // currentTarget is the modal
-  // if they are the same then we should close the modal
-  console.log(evt);
-  if (
-    evt.target === evt.currentTarget ||
-    evt.target.classList.contains("modal__close")
-  ) {
-    closePopup(evt.target);
-  }
-}
+// function closeModalByEscape(e) {
+//   if (e.key === "Escape") {
+//     const openedModal = document.querySelector(".modal_opened");
+//     closePopup(openedModal);
+//   }
+// }
+// function closeModalOnRemoteClick(evt) {
+//   // target is the element on which the event happened
+//   // currentTarget is the modal
+//   // if they are the same then we should close the modal
+//   console.log(evt);
+//   if (
+//     evt.target === evt.currentTarget ||
+//     evt.target.classList.contains("modal__close")
+//   ) {
+//     closePopup(evt.target);
+//   }
+// }
 
 //Initialization
 // initialCards.forEach((cardData) => {

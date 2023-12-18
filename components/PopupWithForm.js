@@ -16,16 +16,22 @@ export default class PopupWithForm extends Popup {
     //this data should then be passed to the submission handler as an argument
     const inputValues = {};
     this._inputEls.forEach((input) => {
-      this._inputValues[input.name] = input.value;
+      inputValues[input.name] = input.value;
     });
     return inputValues;
   }
+  setInputValues(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      this._inputEls[i].value = arr[i];
+    }
+  }
+
   setEventListeners() {
     //It overrides the setEventListeners() parent method
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      handleFormSubmit(e);
+      this._handleFormSubmit(this._getInputValues());
       this.close();
     });
     //The setEventListeners() method of the PopupWithForm class should add a submit event listener to the form
