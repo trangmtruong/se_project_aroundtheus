@@ -5,6 +5,9 @@ export default class Card {
     this._link = data.link;
     this._handleImageClick = handleImageClick;
     this._cardSelector = cardSelector;
+    this._isLiked = data.isLiked;
+    this._id = data._id;
+
     // this._cardElement = document
     //   .querySelector(this._cardSelector)
     //   .content.querySelector(".card")
@@ -29,9 +32,9 @@ export default class Card {
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
-    this._deleteButton = this._cardElement.querySelector(
-      ".card__delete-button"
-    );
+    // this._deleteButton = this._cardElement.querySelector(
+    //   ".card__delete-button"
+    // );
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteCard();
     });

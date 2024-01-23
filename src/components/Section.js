@@ -25,4 +25,8 @@ export default class Section {
       this.addItem(data);
     });
   }
+
+  setItems(arr) {
+    this._items = arr;
+  }
 }
