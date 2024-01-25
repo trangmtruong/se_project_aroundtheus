@@ -1,20 +1,23 @@
 //child of Popup
 import Popup from "./Popup.js";
 export default class PopupWithConfirmation extends Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
-    this._popupConfirmationForm = this._popupElement.querySelector(
-      "#delete-confirmation-form"
-      //what if just confirmation forms?
-    );
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._handleFormSubmit = handleFormSubmit;
+    this.setEventListeners();
   }
-  //set delete form method
+
+  setSubmitHandler(handler) {
+    this._handleFormSubmit = handler;
+  }
+
+  //set confirmation method?
   setEventListeners() {
     super.setEventListeners();
-    this._popupConfirmationForm.addEventListener("submit"),
-      () => {
-        e.preventDefault();
-        //deletes card
-      };
+    this._popupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this._handleFormSubmit();
+    });
   }
 }

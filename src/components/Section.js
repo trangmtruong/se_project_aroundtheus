@@ -29,4 +29,8 @@ export default class Section {
   setItems(arr) {
     this._items = arr;
   }
+
+  // deleteItem(cardId) {
+  //   this._items.forEach((item) => console.log(item._id == cardId));
+  // }
 }

@@ -70,30 +70,29 @@ export default class Api {
     });
   }
 
-  //   likeCard(inputValues) {
-  //     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-  //       headers: this._headers,
-  //       method: "PUT",
-  //       body: JSON.stringify({
-  //         isLiked: data.isLiked,
-  //         id: data._cardId,
-  //       }),
-  //     }).then((res) => {
-  //       //check server response
-  //       return this._checkResponse(res);
-  //     });
-  //   }
+  likeCard(data) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      headers: this._headers,
+      method: "PUT",
+      body: JSON.stringify({
+        isLiked: data.isLiked,
+        id: data._id,
+      }),
+    }).then((res) => {
+      //check server response
+      return this._checkResponse(res);
+    });
+  }
 
-  // dislikeCard() {
-  //     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-
-  //         headers: this._headers,
-  //         method: "DELETE",
-  //       }).then((res) => {
-  //         //check server response
-  //         return this._checkResponse(res);
-  //       });
-  //     }
+  dislikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      headers: this._headers,
+      method: "DELETE",
+    }).then((res) => {
+      //check server response
+      return this._checkResponse(res);
+    });
+  }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {

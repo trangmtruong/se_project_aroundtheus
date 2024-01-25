@@ -4,6 +4,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/API.js";
 import "./index.css";
@@ -34,16 +35,20 @@ const editProfilePopup = new PopupWithForm(
 
 const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
 const previewImagePopup = new PopupWithImage("#preview-image-modal");
+const deleteConfirmationPopup = new PopupWithConfirmation(
+  "#delete-confirmation-modal"
+);
 const profileUserInfo = new UserInfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__description",
 });
 
+/* Event Handlers */
+
 function handleImageClick(data) {
   previewImagePopup.open(data.name, data.link);
 }
 
-/* Event Handlers */
 function handleProfileEditSubmit(inputValues) {
   //should be handled by userinfo class
 
@@ -61,8 +66,69 @@ function handleProfileEditSubmit(inputValues) {
     });
 }
 
+//likes button
+function handleLikingIcon(card) {
+  //fetch to like card on server
+  api
+    .likeCard(data)
+
+    //if successful. we like card locally
+    .then(() => {
+      card.fillInLikeIcon();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert(`${err}. Failed to like card :(`);
+    });
+}
+//unlikes button
+function handleUnlikingIcon(card) {
+  //delete like on server
+  api
+    .dislikeCard(card._id)
+    //if successfull, unlike card locally
+    .then(() => {
+      card.clearLikeIcon();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert(`${err}. Failed to unlike card :(`);
+    });
+}
+
+//delete confimation function
+//runs when you click the trash button
+function handleDeleteClick(card) {
+  //runs when you click yes on the delete confirm modal
+  function handleDeleteConfirmationSubmit() {
+    //delete card on server
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        deleteConfirmationPopup.close();
+        //deletes card locally
+        card.handleDeleteCard();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert(`${err}. Failed to delete card :(`);
+      });
+  }
+
+  //open the delete confirm modal
+  deleteConfirmationPopup.open();
+  deleteConfirmationPopup.setSubmitHandler(handleDeleteConfirmationSubmit);
+}
+
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick,
+    handleUnlikingIcon,
+    handleLikingIcon
+  );
   return card.getCardElement();
 }
 
@@ -77,7 +143,7 @@ function handleAddCardSubmit(inputValues) {
     })
     .catch((err) => {
       console.error(err);
-      alert(`${err}. Failed to add new card :(`); // log the error to the console
+      alert(`${err}. Failed to add new card :(`);
     });
 }
 
@@ -115,7 +181,6 @@ api
     // process the result
     cardSection.setItems(cards);
     cardSection.renderItems();
-    console.log(cards);
   })
   .catch((err) => {
     console.error(err);
