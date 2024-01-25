@@ -17,14 +17,14 @@ export default class Card {
     this._id = data._id;
     this._handleUnlikingIcon = handleUnlikingIcon;
     this._handleLikingIcon = handleLikingIcon;
-    this._setLikeState();
     //moved into constructor
-    this._likeButton = this._cardElement.querySelector(".card__like-button");
+    // this._likeButton = this._cardElement.querySelector(".card__like-button");
 
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
+    // this._cardElement = document
+    //   .querySelector(this._cardSelector)
+    //   .content.querySelector(".card")
+    //   .cloneNode(true);
+    // this._setLikeState();
     // this._handleDeleteClick = handleDeleteClick;
 
     // this._cardElement = document
@@ -94,6 +94,13 @@ export default class Card {
   getCardElement() {
     //from getCardElement
     //get the card view
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
+
+    this._cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+    this._setLikeState();
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardTitle = this._cardElement.querySelector(".card__title");
     this._cardImage.src = this._link;
