@@ -70,11 +70,12 @@ function handleProfileEditSubmit(inputValues) {
 function handleLikingIcon(card) {
   //fetch to like card on server
   api
-    .likeCard(data)
+    .likeCard(card._id)
 
     //if successful. we like card locally
     .then(() => {
       card.fillInLikeIcon();
+      card.isLiked = false;
     })
     .catch((err) => {
       console.error(err);
@@ -89,6 +90,7 @@ function handleUnlikingIcon(card) {
     //if successfull, unlike card locally
     .then(() => {
       card.clearLikeIcon();
+      this.isLiked = true;
     })
     .catch((err) => {
       console.error(err);
@@ -179,7 +181,7 @@ api
   .getInitialCards()
   .then((cards) => {
     // process the result
-    cardSection.setItems(cards);
+    cardSection.setItems(cards.reverse());
     cardSection.renderItems();
   })
   .catch((err) => {

@@ -46,15 +46,17 @@ export default class Api {
     });
   }
 
-  // updateAvatar() {
-  //   return fetch(`${this._baseUrl}/users/me/avatar`, {
-  //     headers: this._headers,
-  //     method: "PATCH",
-  //   }).then((res) => {
-  //     //check server response
-  //     return this._checkResponse(res);
-  //   });
-  // }
+  updateAvatar(avatarURL) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({
+        avatar: avatarURL,
+      }),
+    }).then((res) => {
+      return this._checkResponse(res);
+    });
+  }
 
   createCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
@@ -65,19 +67,18 @@ export default class Api {
         link: link,
       }),
     }).then((res) => {
-      //check server response
       return this._checkResponse(res);
     });
   }
 
-  likeCard(data) {
+  likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
       method: "PUT",
-      body: JSON.stringify({
-        isLiked: data.isLiked,
-        id: data._id,
-      }),
+      //   body: JSON.stringify({
+      // isLiked: data.isLiked,
+      // id: data._id,
+      //   }),
     }).then((res) => {
       //check server response
       return this._checkResponse(res);

@@ -22,9 +22,10 @@
         <section class="profile page__section">
           <img
             src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Avarta"
+            alt="Avatar"
             class="profile__image"
           />
+          <div class="profile__edit-avatar-icon"></div>
           <div class="profile__info">
             <h1 class="profile__title"></h1>
             <button
@@ -154,6 +155,38 @@
         <h2 class="modal__heading">Are you sure?</h2>
         <form class="modal__form" id="delete-confirmation-form">
           <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Avatar Modal-->
+    <div class="modal" id="edit-avatar-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="edit-avatar-close-modal"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">New place</h2>
+        <form class="modal__form" id="edit-avatar-form" novalidate>
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_url"
+              type="url"
+              name="link"
+              id="edit-avatar-input"
+              placeholder="Avatar link"
+              required
+            />
+            <span class="modal__span" id="edit-avatar-input-error"></span>
+          </label>
+          <button
+            class="modal__button modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>

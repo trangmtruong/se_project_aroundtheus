@@ -13,7 +13,7 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._cardSelector = cardSelector;
-    this._isLiked = data.isLiked;
+    this.isLiked = data.isLiked;
     this._id = data._id;
     this._handleUnlikingIcon = handleUnlikingIcon;
     this._handleLikingIcon = handleLikingIcon;
@@ -42,12 +42,12 @@ export default class Card {
   _setEventListeners() {
     //".card__like-button"
     this._likeButton.addEventListener("click", () => {
-      if (this._isLiked === true) {
+      if (this.isLiked === true) {
         // call a function from index.js to unlike the button
-        this._handleLikingIcon(this);
+        this._handleUnlikingIcon(this);
       } else {
         //otherwise you can call a different function form index.js to like the button
-        this._handleUnlikingIcon(this);
+        this._handleLikingIcon(this);
       }
     });
 
@@ -69,17 +69,17 @@ export default class Card {
   }
 
   _setLikeState() {
-    if (this._isLiked === true) {
-      this._fillInLikeIcon();
+    if (this.isLiked === true) {
+      this.fillInLikeIcon();
     } else {
-      this._clearLikeIcon();
+      this.clearLikeIcon();
     }
   }
 
-  _fillInLikeIcon() {
+  fillInLikeIcon() {
     this._likeButton.classList.add("card__like-button_active");
   }
-  _clearLikeIcon() {
+  clearLikeIcon() {
     this._likeButton.classList.remove("card__like-button_active");
   }
 
@@ -94,12 +94,12 @@ export default class Card {
   getCardElement() {
     //from getCardElement
     //get the card view
-    this._likeButton = this._cardElement.querySelector(".card__like-button");
-
     this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
+
     this._setLikeState();
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardTitle = this._cardElement.querySelector(".card__title");
