@@ -38,20 +38,12 @@ export default class PopupWithForm extends Popup {
     //and call the setEventListeners() method of the parent class
   }
 
-  renderLoadingSave(loading) {
+  renderLoading(loading) {
     const submitButton = this._popupForm.querySelector(".modal__button");
     if (loading) {
       submitButton.textContent = "Saving...";
     } else {
       submitButton.textContent = "Save";
-    }
-  }
-  renderLoadingCreate(loading) {
-    const submitButton = this._popupForm.querySelector(".modal__button");
-    if (loading) {
-      submitButton.textContent = "Creating...";
-    } else {
-      submitButton.textContent = "Create";
     }
   }
 }

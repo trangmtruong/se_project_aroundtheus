@@ -54,7 +54,7 @@ const profileUserInfo = new UserInfo({
 
 /* Event Handlers */
 function handleEditAvatarSubmit(inputValues) {
-  editAvatarPopup.renderLoadingSave(true);
+  editAvatarPopup.renderLoading(true);
   api
     .updateAvatar(inputValues.link)
     .then((res) => {
@@ -66,7 +66,7 @@ function handleEditAvatarSubmit(inputValues) {
       alert(`${err}. Failed to edit avatar :(`); // log the error to the console
     })
     .finally(() => {
-      editAvatarPopup.renderLoadingSave(false);
+      editAvatarPopup.renderLoading(false);
     });
 }
 
@@ -75,7 +75,7 @@ function handleImageClick(data) {
 }
 
 function handleProfileEditSubmit(inputValues) {
-  editProfilePopup.renderLoadingSave(true);
+  editProfilePopup.renderLoading(true);
   //should be handled by userinfo class
 
   api
@@ -91,7 +91,7 @@ function handleProfileEditSubmit(inputValues) {
       alert(`${err}. Failed to update profile info :(`); // log the error to the console
     })
     .finally(() => {
-      editProfilePopup.renderLoadingSave(false);
+      editProfilePopup.renderLoading(false);
     });
 }
 
@@ -164,7 +164,7 @@ function createCard(cardData) {
 }
 
 function handleAddCardSubmit(inputValues) {
-  addCardPopup.renderLoadingCreate(true);
+  addCardPopup.renderLoading(true);
   api
     .createCard(inputValues)
     .then((data) => {
@@ -178,7 +178,7 @@ function handleAddCardSubmit(inputValues) {
       alert(`${err}. Failed to add new card :(`);
     })
     .finally(() => {
-      addCardPopup.renderLoadingCreate(false);
+      addCardPopup.renderLoading(false);
     });
 }
 
