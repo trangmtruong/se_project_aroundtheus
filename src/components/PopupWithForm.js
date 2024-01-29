@@ -37,4 +37,21 @@ export default class PopupWithForm extends Popup {
     //The setEventListeners() method of the PopupWithForm class should add a submit event listener to the form
     //and call the setEventListeners() method of the parent class
   }
+
+  renderLoadingSave(loading) {
+    const submitButton = this._popupForm.querySelector(".modal__button");
+    if (loading) {
+      submitButton.textContent = "Saving...";
+    } else {
+      submitButton.textContent = "Save";
+    }
+  }
+  renderLoadingCreate(loading) {
+    const submitButton = this._popupForm.querySelector(".modal__button");
+    if (loading) {
+      submitButton.textContent = "Creating...";
+    } else {
+      submitButton.textContent = "Create";
+    }
+  }
 }

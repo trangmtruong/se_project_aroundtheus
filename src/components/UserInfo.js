@@ -1,9 +1,10 @@
 export default class UserInfo {
-  constructor({ nameSelector, jobSelector }) {
+  constructor({ nameSelector, jobSelector, avatarSelector }) {
     //Take an object with the selectors of two elements into the constructor:
     //one for the profile’s name element and one for its job element
     this._nameEl = document.querySelector(nameSelector);
     this._jobEl = document.querySelector(jobSelector);
+    this._avatarEl = document.querySelector(avatarSelector);
   }
   getUserInfo() {
     //returns an object containing information about the user
@@ -19,6 +20,9 @@ export default class UserInfo {
     //This method should be used after successful submission of the profile form
     this._nameEl.textContent = name;
     this._jobEl.textContent = job;
+  }
+  setUserAvatar(avatar) {
+    this._avatarEl.src = avatar;
   }
 }
 

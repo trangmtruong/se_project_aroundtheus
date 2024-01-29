@@ -20,12 +20,16 @@
 
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Avatar"
-            class="profile__image"
-          />
-          <div class="profile__edit-avatar-icon"></div>
+          <div class="profile__avatar-container">
+            <img src="" alt="Avatar" class="profile__image" />
+            <div class="profile__edit-avatar-container">
+              <button
+                class="profile__edit-avatar-button"
+                id="profile__edit-avatar-button"
+                type="button"
+              ></button>
+            </div>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title"></h1>
             <button
@@ -175,7 +179,7 @@
               type="url"
               name="link"
               id="edit-avatar-input"
-              placeholder="Avatar link"
+              placeholder="Avatar URL"
               required
             />
             <span class="modal__span" id="edit-avatar-input-error"></span>
