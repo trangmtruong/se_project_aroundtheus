@@ -20,19 +20,19 @@ export default class Api {
   }
 
   getInitialCards() {
-    this._request(`${this._baseUrl}/cards`, {
+    return this._request(`${this._baseUrl}/cards`, {
       headers: this._headers,
     });
   }
 
   getUsersInfo() {
-    this._request(`${this._baseUrl}/users/me`, {
+    return this._request(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     });
   }
 
   updateProfileInfo({ title, description }) {
-    this._request(`${this._baseUrl}/users/me`, {
+    return this._request(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify({
@@ -43,7 +43,7 @@ export default class Api {
   }
 
   updateAvatar(url) {
-    this._request(`${this._baseUrl}/users/me/avatar`, {
+    return this._request(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
       body: JSON.stringify({
@@ -53,7 +53,7 @@ export default class Api {
   }
 
   createCard({ name, link }) {
-    this._request(`${this._baseUrl}/cards`, {
+    return this._request(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: "POST",
       body: JSON.stringify({
@@ -64,7 +64,7 @@ export default class Api {
   }
 
   likeCard(cardId) {
-    this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
       method: "PUT",
       //   body: JSON.stringify({
@@ -75,14 +75,14 @@ export default class Api {
   }
 
   dislikeCard(cardId) {
-    this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       headers: this._headers,
       method: "DELETE",
     });
   }
 
   deleteCard(cardId) {
-    this._request(`${this._baseUrl}/cards/${cardId}`, {
+    return this._request(`${this._baseUrl}/cards/${cardId}`, {
       headers: this._headers,
       method: "DELETE",
     });
