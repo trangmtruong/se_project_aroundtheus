@@ -7,7 +7,7 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._inputEls = [...this._popupElement.querySelectorAll(".modal__input")];
     const submitButton = this._popupForm.querySelector(".modal__button");
-    this._submitBtnText = this._submitBtnText.textContent;
+    this._submitButtonText = this._submitButton.textContent;
     this.setEventListeners();
     //It accepts two arguments: the popup selector and a callback function
     // which PopupWithForm calls when the form’s submit event fires.
@@ -21,10 +21,10 @@ export default class PopupWithForm extends Popup {
     // }
 
     if (isLoading) {
-      this._submitBtnText.textContent = loadingText;
+      this._submitButton.textContent = loadingText;
     } else {
       // here we return back the initial text. So, you don’t need to bother yourself about it
-      this._submitBtnText.textContent = this._submitBtnText;
+      this._submitButton.textContent = this._submitButtonText;
     }
   }
 
