@@ -119,7 +119,7 @@ function handleUnlikingIcon(card) {
     //if successfull, unlike card locally
     .then(() => {
       card.clearLikeIcon();
-      this.isLiked = true;
+      card.isLiked = true;
     })
     .catch((err) => {
       console.error(err);

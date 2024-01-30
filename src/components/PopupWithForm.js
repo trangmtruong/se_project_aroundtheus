@@ -6,9 +6,26 @@ export default class PopupWithForm extends Popup {
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
     this._inputEls = [...this._popupElement.querySelectorAll(".modal__input")];
+    const submitButton = this._popupForm.querySelector(".modal__button");
+    this._submitBtnText = this._submitBtnText.textContent;
     this.setEventListeners();
     //It accepts two arguments: the popup selector and a callback function
     // which PopupWithForm calls when the form’s submit event fires.
+  }
+  renderLoading(isLoading, loadingText = "Saving...") {
+    // // const submitButton = this._popupForm.querySelector(".modal__button");
+    // if (loading) {
+    //   submitButton.textContent = "Saving...";
+    // } else {
+    //   submitButton.textContent = "Save";
+    // }
+
+    if (isLoading) {
+      this._submitBtnText.textContent = loadingText;
+    } else {
+      // here we return back the initial text. So, you don’t need to bother yourself about it
+      this._submitBtnText.textContent = this._submitBtnText;
+    }
   }
 
   _getInputValues() {
@@ -38,12 +55,12 @@ export default class PopupWithForm extends Popup {
     //and call the setEventListeners() method of the parent class
   }
 
-  renderLoading(loading) {
-    const submitButton = this._popupForm.querySelector(".modal__button");
-    if (loading) {
-      submitButton.textContent = "Saving...";
-    } else {
-      submitButton.textContent = "Save";
-    }
-  }
+  // renderLoading(loading) {
+  //   // const submitButton = this._popupForm.querySelector(".modal__button");
+  //   if (loading) {
+  //     submitButton.textContent = "Saving...";
+  //   } else {
+  //     submitButton.textContent = "Save";
+  //   }
+  // }
 }
