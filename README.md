@@ -19,17 +19,3 @@ This project was made using:
 **GitHub**
 
 - [Link to the project on GitHub](https://trangmtruong.github.io/se_project_aroundtheus/)
-
-**Images**
-
-![Main page 1280](./images/demo/mainpage1280.png)
-
-![Mobile 320](./images/demo/mobile320.png)
-
-![New Profile Info and New Card Example](./images/demo/AddCardExample.png)
-
-![Profile Edit Modal with Error Messages](./images/demo/EditProfileFormValidationErrorMessages.png)
-
-![Add Card Modal with Error Messages](./images/demo/AddCardFormValidationErrorMessages.png)
-
-![Default Add Card Modal with Disabled Button](./images/demo/AddCardForm-DisabledSubmitButtonDefault.png)
