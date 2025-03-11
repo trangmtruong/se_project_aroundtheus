@@ -1,21 +1,29 @@
-# Project 3: Around The U.S.
+# Around The U.S. 🌎
 
-### Overview
+## Overview
 
-Around the U.S. is my the first project using Figma, working with grid in CSS and deploying project to GitHub.
+**Around The U.S.** is a responsive **front-end web application** that allows users to:  
+📸 **Upload photos** of their favorite locations  
+🗑️ **Manage their gallery** by deleting photos  
+❤️ **Engage with content** by liking and unliking photos
 
-**Technologies and Techniques**
+This project was my first time working with **Figma** for design and deploying a project to **GitHub** while implementing modern front-end development techniques.
 
-This project was made using:
+## 🚀 Features
 
-- Figma
-- VSCode
-- GitHub
-- HTML
-- CSS
-- Grids
-- Javascript
+- **Fully responsive web app** built with **HTML, CSS, and JavaScript**
+- **Figma-based design** for a structured and user-friendly interface
+- **Dynamic photo management** (uploading, deleting, liking/unliking photos)
+- **Optimized performance** using **package.json, Webpack, and Babel** for dependency management and cross-browser compatibility
+- **Fetched and integrated custom APIs** to handle user interactions
+- **Successfully deployed the project to GitHub**
 
-**GitHub**
+## 🛠 Technologies Used
 
-- [Link to the project on GitHub](https://trangmtruong.github.io/se_project_aroundtheus/)
+- **Frontend:** HTML, CSS (Grid & Flexbox), JavaScript
+- **Development Tools:** VS Code, GitHub, Figma
+- **Build & Performance:** Webpack, Babel, package.json
+
+## 🔗 Live Demo & GitHub
+
+🌍 **[Live Site](https://trangmtruong.github.io/se_project_aroundtheus/)**
